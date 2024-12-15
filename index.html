@@ -4,29 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GeoFS客舱广播</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        audio {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <h1>GeoFS客舱广播</h1>
     <h2>由開飛機のzm制作</h2>
     <h3>我们的QQ交流群797834076</h3>
-    <div id="controls">
-        <button id="closedoor">关门</button>
-        <button id="pre-takeoff">起飞前</button>
-        <button id="climb">爬升</button>
-        <button id="shake">颠簸</button>
-        <button id="cruise">巡航</button>
-        <button id="eat-meal">用餐提醒</button>
-        <button id="breakfast">早餐</button>
-        <button id="lunch">午餐</button>
-        <button id="dinner">晚餐</button>
-        <button id="before-decline">下降前</button>
-        <button id="before-take-on">落地前</button>
-        <button id="opendoor">开门</button>
-    </div>
-
-    <audio id="audio" controls></audio>
-
-    <script src="script.js"></script>
+    <ul>
+        <li>
+            <audio controls src="sounds/关门.wav"></audio>
+            <p>关门</p>
+        </li>
+        <li>
+            <audio controls src="sounds/b take off.wav"></audio>
+            <p>起飞前</p>
+        </li>
+        <li>
+            <audio controls src="sounds/爬升.wav"></audio>
+            <p>爬升</p>
+        </li>
+        <li>
+            <audio controls src="sounds/颠簸.wav"></audio>
+            <p>颠簸</p>
+        </li>
+        <li>
+            <audio controls src="sounds/巡航.wav"></audio>
+            <p>巡航</p>
+        </li>
+        <li>
+            <audio controls src="sounds/用餐提醒.wav"></audio>
+            <p>用餐提醒</p>
+        </li>
+        <li>
+            <audio controls src="sounds/早餐.wav"></audio>
+            <p>早餐</p>
+        </li>
+        <li>
+            <audio controls src="sounds/午餐.wav"></audio>
+            <p>午餐</p>
+        </li>
+        <li>
+            <audio controls src="sounds/晚餐.wav"></audio>
+            <p>晚餐</p>
+        </li>
+        <li>
+            <audio controls src="sounds/下降前.wav"></audio>
+            <p>下降前</p>
+        </li>
+        <li>
+            <audio controls src="sounds/落地前.wav"></audio>
+            <p>落地前</p>
+        </li>
+        <li>
+            <audio controls src="sounds/开门.wav"></audio>
+            <p>开门</p>
+        </li>
+    </ul>
 </body>
 </html>
