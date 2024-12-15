@@ -1,6 +1,8 @@
-// script.js
 document.addEventListener('DOMContentLoaded', function() {
+    // 确保页面中有一个 audio 元素
     const audio = document.getElementById('audio');
+
+    // 音频文件路径
     const audioFiles = {
         'closedoor': 'sounds/关门.wav',
         'pre-takeoff': 'sounds/b take off.wav',
@@ -15,53 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
         'before-take-on': 'sounds/落地前.wav',
         'opendoor': 'sounds/开门.wav',
     };
-    document.getElementById('closedoor').addEventListener('click', function() {
-        playAudio('closedoor');
-    });
-
-    document.getElementById('pre-takeoff').addEventListener('click', function() {
-        playAudio('pre-takeoff');
-    });
-
-    document.getElementById('climb').addEventListener('click', function() {
-        playAudio('climb');
-    });
-
-    document.getElementById('shake').addEventListener('click', function() {
-        playAudio('shake');
-    });
-
-    document.getElementById('cruise').addEventListener('click', function() {
-        playAudio('cruise');
-    });
-
-    document.getElementById('eat-meal').addEventListener('click', function() {
-        playAudio('eat-meal');
-    });
-
-    document.getElementById('breakfast').addEventListener('click', function() {
-        playAudio('breakfast');
-    });
-
-    document.getElementById('lunch').addEventListener('click', function() {
-        playAudio('lunch');
-    });
-
-    document.getElementById('dinner').addEventListener('click', function() {
-        playAudio('dinner');
-    });
-
-    document.getElementById('before-decline').addEventListener('click', function() {
-        playAudio('before-decline');
-    });
-
-    document.getElementById('before-take-on').addEventListener('click', function() {
-        playAudio('before-take-on');
-    });
-
-    document.getElementById('opendoor').addEventListener('click', function() {
-        playAudio('opendoor');
-    });
 
     // 播放音频的函数
     function playAudio(audioName) {
@@ -73,4 +28,32 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('音频文件未找到');
         }
     }
+
+    // 动态创建按钮
+    const buttons = [
+        { id: 'closedoor', text: '关门' },
+        { id: 'pre-takeoff', text: '起飞前' },
+        { id: 'climb', text: '爬升' },
+        { id: 'shake', text: '颠簸' },
+        { id: 'cruise', text: '巡航' },
+        { id: 'eat-meal', text: '用餐提醒' },
+        { id: 'breakfast', text: '早餐' },
+        { id: 'lunch', text: '午餐' },
+        { id: 'dinner', text: '晚餐' },
+        { id: 'before-decline', text: '下降前' },
+        { id: 'before-take-on', text: '落地前' },
+        { id: 'opendoor', text: '开门' }
+    ];
+
+    buttons.forEach(button => {
+        const btn = document.createElement('button');
+        btn.id = button.id;
+        btn.textContent = button.text;
+        btn.addEventListener('click', function() {
+            playAudio(button.id);
+        });
+        document.body.appendChild(btn);
+    });
+
+    console.log('script.js 已加载');
 });
