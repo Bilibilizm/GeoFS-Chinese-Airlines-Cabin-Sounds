@@ -29,30 +29,24 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // 动态创建按钮
-    const buttons = [
-        { id: 'closedoor', text: '关门' },
-        { id: 'pre-takeoff', text: '起飞前' },
-        { id: 'climb', text: '爬升' },
-        { id: 'shake', text: '颠簸' },
-        { id: 'cruise', text: '巡航' },
-        { id: 'eat-meal', text: '用餐提醒' },
-        { id: 'breakfast', text: '早餐' },
-        { id: 'lunch', text: '午餐' },
-        { id: 'dinner', text: '晚餐' },
-        { id: 'before-decline', text: '下降前' },
-        { id: 'before-take-on', text: '落地前' },
-        { id: 'opendoor', text: '开门' }
-    ];
-
+    // 为每个按钮绑定点击事件
+    const buttons = document.querySelectorAll('#controls button');
     buttons.forEach(button => {
-        const btn = document.createElement('button');
-        btn.id = button.id;
-        btn.textContent = button.text;
-        btn.addEventListener('click', function() {
+        button.addEventListener('click', function() {
             playAudio(button.id);
         });
-        document.body.appendChild(btn);
+    });
+
+    // 添加显示/隐藏按钮
+    const toggleButton = document.createElement('button');
+    toggleButton.id = 'toggle-controls';
+    toggleButton.textContent = '显示/隐藏按钮';
+    document.body.appendChild(toggleButton);
+
+    // 显示/隐藏按钮组
+    toggleButton.addEventListener('click', function() {
+        const controls = document.getElementById('controls');
+        controls.classList.toggle('hidden');
     });
 
     console.log('script.js 已加载');
