@@ -1,24 +1,20 @@
 // script.js
 document.addEventListener('DOMContentLoaded', function() {
     const audio = document.getElementById('audio');
-
-    // 从GitHub加载音频文件
     const audioFiles = {
-        'closedoor': 'https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/raw/main/sounds/%E5%85%B3%E9%97%A8.wav',
-        'pre-takeoff': 'https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/raw/main/sounds/b%20take%20off.wav',
-        'climb': 'https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/raw/main/sounds/%E7%88%AC%E5%8D%87.wav',
-        'shake': 'https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/raw/main/sounds/%E9%A2%A0%E7%B0%B8.wav',
-        'cruise': 'https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/raw/main/sounds/%E5%B7%A1%E8%88%AA.wav',
-        'eat-meal': 'https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/raw/main/sounds/%E7%94%A8%E9%A4%90%E6%8F%90%E9%86%92.wav',
-        'breakfast': 'https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/raw/main/sounds/%E6%97%A9%E9%A4%90.wav',
-        'lunch': 'https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/raw/main/sounds/%E5%8D%88%E9%A4%90.wav',
-        'dinner': 'https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/raw/main/sounds/%E6%99%9A%E9%A4%90.wav',
-        'before-decline': 'https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/raw/main/sounds/%E4%B8%8B%E9%99%8D%E5%89%8D.wav',
-        'before-take-on': 'https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/raw/main/sounds/%E8%90%BD%E5%9C%B0%E5%89%8D.wav',
-        'opendoor': 'https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/raw/main/sounds/%E5%BC%80%E9%97%A8.wav',
+        'closedoor': 'sounds/关门.wav',
+        'pre-takeoff': 'sounds/b take off.wav',
+        'climb': 'sounds/爬升.wav',
+        'shake': 'sounds/颠簸.wav',
+        'cruise': 'sounds/巡航.wav',
+        'eat-meal': 'sounds/用餐提醒.wav',
+        'breakfast': 'sounds/早餐.wav',
+        'lunch': 'sounds/午餐.wav',
+        'dinner': 'sounds/晚餐.wav',
+        'before-decline': 'sounds/下降前.wav',
+        'before-take-on': 'sounds/落地前.wav',
+        'opendoor': 'sounds/开门.wav',
     };
-
-    // 为每个按钮添加点击事件
     document.getElementById('closedoor').addEventListener('click', function() {
         playAudio('closedoor');
     });
@@ -74,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
             audio.src = audioUrl;
             audio.play();
         } else {
-            alert('did'nt find!');
+            alert('音频文件未找到');
         }
     }
 });
