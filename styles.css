@@ -1,28 +1,41 @@
+audio {
+    margin-top: 20px;
+    width: 100%; /* 宽度占满父容器 */
+    max-width: 400px; /* 最大宽度 */
+}
+7. 完整修改后的 styles.css
 /* styles.css */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    margin: 20px;
+    margin: 0; /* 去掉外边距 */
+    padding: 20px; /* 添加内边距 */
 }
 
 h1 {
     color: #333;
+    font-size: 28px; /* 更大的字体 */
+    font-weight: bold; /* 加粗 */
 }
 
 h2 {
-    position: fixed; /* 固定定位 */
-    bottom: 10px; /* 距离底部的距离 */
-    right: 10px; /* 距离右侧的距离 */
-    color: #666; /* 副标题的颜色 */
-    font-size: 16px; /* 副标题的字体大小 */
-    background-color: rgba(255, 255, 255, 0.8); /* 背景颜色，带透明度 */
-    padding: 5px 10px; /* 内边距 */
-    border-radius: 5px; /* 圆角 */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    color: #666;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* 确保在最上层 */
 }
 
 #controls {
     margin: 20px 0;
+    display: flex; /* 使用弹性布局 */
+    justify-content: center; /* 居中对齐 */
+    flex-wrap: wrap; /* 自动换行 */
 }
 
 button {
@@ -30,6 +43,10 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    background-color: #f0f0f0; /* 按钮背景颜色 */
+    border: 1px solid #ccc; /* 按钮边框 */
+    border-radius: 5px; /* 圆角 */
+    transition: background-color 0.3s ease; /* 悬停效果过渡 */
 }
 
 button:hover {
@@ -38,4 +55,6 @@ button:hover {
 
 audio {
     margin-top: 20px;
+    width: 100%; /* 宽度占满父容器 */
+    max-width: 400px; /* 最大宽度 */
 }
