@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Playlist</title>
+    <link rel="stylesheet" href="styles.css"> <!-- 引入CSS样式表 -->
+</head>
+<body>
+    <!-- Play 按钮，用于显示/隐藏音频列表 -->
+    <button id="playButton">Play</button>
+    
+    <!-- 音频列表，初始状态为隐藏 -->
+    <div id="audioList" class="hidden">
+        <ul>
+            <!-- 每个列表项都是一个可点击的链接，调用 playAudio 函数播放音频 -->
+            <li onclick="playAudio('https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/blob/main/sounds/%E5%85%B3%E9%97%A8.wav')">open door</li>
+            <li onclick="playAudio('https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/blob/main/sounds/%E5%BC%80%E9%97%A8.wav')">close door</li>
+            <li onclick="playAudio('audio/file3.mp3')">Audio 3</li>
+            <!-- 根据需要添加更多音频 -->
+        </ul>
+    </div>
+    
+    <!-- 引入JavaScript脚本 -->
+    <script src="user.js"></script>
+</body>
+</html>
