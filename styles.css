@@ -9,6 +9,18 @@ h1 {
     color: #333;
 }
 
+h2 {
+    position: fixed; /* 固定定位 */
+    bottom: 10px; /* 距离底部的距离 */
+    right: 10px; /* 距离右侧的距离 */
+    color: #666; /* 副标题的颜色 */
+    font-size: 16px; /* 副标题的字体大小 */
+    background-color: rgba(255, 255, 255, 0.8); /* 背景颜色，带透明度 */
+    padding: 5px 10px; /* 内边距 */
+    border-radius: 5px; /* 圆角 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+}
+
 #controls {
     margin: 20px 0;
 }
