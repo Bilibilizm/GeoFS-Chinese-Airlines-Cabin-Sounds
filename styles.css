@@ -1,54 +1,80 @@
-/* styles.css */
+/* 设置页面背景颜色 */
 body {
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* 标题样式 */
+h1, h2, h3 {
     text-align: center;
-    margin: 0; /* 去掉外边距 */
-    padding: 20px; /* 添加内边距 */
-}
-
-h1 {
     color: #333;
-    font-size: 28px; /* 更大的字体 */
-    font-weight: bold; /* 加粗 */
 }
 
-h2 {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    color: #666;
-    font-size: 16px;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 5px 10px;
+/* 按钮组容器样式 */
+#controls {
+    position: fixed; /* 固定位置 */
+    bottom: 20px; /* 距离底部 20px */
+    left: 20px; /* 距离左侧 20px */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* 按钮之间的间距 */
+    background-color: #fff;
+    padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 1000; /* 确保在最上层 */
+    transition: all 0.3s ease; /* 添加过渡效果 */
+    max-height: 300px; /* 最大高度 */
+    overflow: hidden; /* 隐藏溢出内容 */
 }
 
-#controls {
-    margin: 20px 0;
-    display: flex; /* 使用弹性布局 */
-    justify-content: center; /* 居中对齐 */
-    flex-wrap: wrap; /* 自动换行 */
-}
-
-button {
-    margin: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
+/* 按钮样式 */
+#controls button {
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
     cursor: pointer;
-    background-color: #f0f0f0; /* 按钮背景颜色 */
-    border: 1px solid #ccc; /* 按钮边框 */
-    border-radius: 5px; /* 圆角 */
-    transition: background-color 0.3s ease; /* 悬停效果过渡 */
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #ddd;
+/* 按钮悬停效果 */
+#controls button:hover {
+    background-color: #0056b3;
 }
 
-audio {
-    margin-top: 20px;
-    width: 100%; /* 宽度占满父容器 */
-    max-width: 400px; /* 最大宽度 */
+/* 隐藏按钮组 */
+#controls.hidden {
+    max-height: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* 显示/隐藏按钮 */
+#toggle-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 1000; /* 确保按钮在最上层 */
+}
+
+/* 显示/隐藏按钮悬停效果 */
+#toggle-controls:hover {
+    background-color: #0056b3;
 }
