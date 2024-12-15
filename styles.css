@@ -1,9 +1,3 @@
-audio {
-    margin-top: 20px;
-    width: 100%; /* 宽度占满父容器 */
-    max-width: 400px; /* 最大宽度 */
-}
-7. 完整修改后的 styles.css
 /* styles.css */
 body {
     font-family: Arial, sans-serif;
