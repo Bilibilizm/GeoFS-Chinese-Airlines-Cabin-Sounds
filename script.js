@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'pre-takeoff': 'https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/raw/main/sounds/b%20take%20off.wav',
         'climb': 'https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/raw/main/sounds/%E7%88%AC%E5%8D%87.wav',
         'shake': 'https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/raw/main/sounds/%E9%A2%A0%E7%B0%B8.wav',
-        'cruise': 'https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/raw/main/sounds/%E5%B7%A1%E8%88%AA.wav', // 修正路径
+        'cruise': 'https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/raw/main/sounds/%E5%B7%A1%E8%88%AA.wav',
         'eat-meal': 'https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/raw/main/sounds/%E7%94%A8%E9%A4%90%E6%8F%90%E9%86%92.wav',
         'breakfast': 'https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/raw/main/sounds/%E6%97%A9%E9%A4%90.wav',
         'lunch': 'https://github.com/Bilibilizm/-test-GeoFS-China-Eastern-cabin-sounds/raw/main/sounds/%E5%8D%88%E9%A4%90.wav',
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
             audio.src = audioUrl;
             audio.play();
         } else {
-            alert('音频文件未找到');
+            alert('did'nt find!');
         }
     }
 });
