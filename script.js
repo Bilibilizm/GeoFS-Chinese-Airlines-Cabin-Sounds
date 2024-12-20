@@ -1,34 +1,32 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // 音频文件路径
-    const audioFiles = {
-        'closedoor': 'sounds/关门.wav',
-        'pre-takeoff': 'sounds/b take off.wav',
-        'climb': 'sounds/爬升.wav',
-        'shake': 'sounds/颠簸.wav',
-        'cruise': 'sounds/巡航.wav',
-        'eat-meal': 'sounds/用餐提醒.wav',
-        'breakfast': 'sounds/早餐.wav',
-        'lunch': 'sounds/午餐.wav',
-        'dinner': 'sounds/晚餐.wav',
-        'before-decline': 'sounds/下降前.wav',
-        'before-take-on': 'sounds/落地前.wav',
-        'opendoor': 'sounds/开门.wav',
-    };
+// 预加载音频文件
+var audioCache = {};
+var sounds = [
+    '起飞前', '关门', 'Ding', '巡航', '用餐提醒', '早餐', '午餐', '晚餐', '娱乐', '使用娱乐系统提示',
+    '颠簸提醒', '下降前', '落地前', '开门', '备降', '备降道歉', '技术故障', '撤离', '复飞'
+];
 
-    // 为每个按钮绑定点击事件
-    const buttons = document.querySelectorAll('#controls button');
-    buttons.forEach(button => {
-        button.addEventListener('click', function() {
-            // 获取音频文件路径
-            const audioUrl = audioFiles[button.id];
-            if (audioUrl) {
-                // 打开音频菜单页面
-                window.location.href = 'audio-menu.html';
-            } else {
-                alert('音频文件未找到');
-            }
-        });
-    });
-
-    console.log('script.js 已加载');
+// 预加载所有音频文件
+sounds.forEach(function(sound) {
+    var audio = new Audio(`https://raw.githubusercontent.com/Bilibilizm/GeoFS-Chinese-Airlines-Cabin-Sounds/main/sounds/${sound}.wav`);
+    audioCache[sound] = audio;
 });
+
+// 显示/隐藏菜单
+document.getElementById('sound-button').addEventListener('click', function() {
+    var menu = document.getElementById('sound-menu');
+    if (menu.style.display === 'none' || menu.style.display === '') {
+        menu.style.display = 'block';
+    } else {
+        menu.style.display = 'none';
+    }
+});
+
+// 播放音频
+function playSound(soundName) {
+    var audio = audioCache[soundName];
+    if (audio) {
+        audio.play();
+    } else {
+        console.error('Audio not found:', soundName);
+    }
+}
