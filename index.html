@@ -1,41 +1,40 @@
-// @version      1.1
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeoFS Cabin Sounds</title>
+    <title>GeoFS Chinese Cabin Sounds</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- 声音按钮 -->
     <div id="sound-button">Sounds</div>
+
+    <!-- 声音菜单 -->
     <div id="sound-menu">
-        <h1>GeoFS China Airlines Cabin Announcements</h1>
-        <h2>Created by bilibili開飛機のzm</h2>
-        <div id="sound-list">
-            <button onclick="playSound('关门')">Close Door</button>
-            <button onclick="playSound('Ding')">Ding</button>
-            <button onclick="playSound('下降前')">Pre-Descent</button>
-            <button onclick="playSound('午餐')">Lunch</button>
-            <button onclick="playSound('备降')">Divert</button>
-            <button onclick="playSound('备降道歉')">Divert Apology</button>
-            <button onclick="playSound('复飞')">Go Around</button>
-            <button onclick="playSound('娱乐')">Entertainment</button>
-            <button onclick="playSound('使用娱乐系统提示')">Entertainment System Prompt</button>
-            <button onclick="playSound('巡航')">Cruise</button>
-            <button onclick="playSound('开门')">Open Door</button>
-            <button onclick="playSound('技术故障')">Technical Fault</button>
-            <button onclick="playSound('撤离')">Evacuation</button>
-            <button onclick="playSound('早餐')">Breakfast</button>
-            <button onclick="playSound('晚餐')">Dinner</button>
-            <button onclick="playSound('爬升')">Climb</button>
-            <button onclick="playSound('用餐提醒')">Meal Reminder</button>
-            <button onclick="playSound('落地前')">Pre-Landing</button>
-            <button onclick="playSound('起飞前')">Pre-Takeoff</button>
-            <button onclick="playSound('颠簸提醒')">Turbulence Warning</button>
+        <h1>GeoFS Chinese Cabin Sounds</h1>
+        <h2>Created by bilibili-開飛機のzm</h2>
+
+        <!-- 语言按钮 -->
+        <button id="language-button">
+            Language
+            <span>▼</span>
+        </button>
+
+        <!-- 语言菜单 -->
+        <div id="language-menu">
+            <button onclick="setLanguage('简体中文')">简体中文 <span>切换</span></button>
+            <button onclick="setLanguage('繁體中文')">繁體中文 <span>切換</span></button>
+            <button onclick="setLanguage('English')">English <span>Switch</span></button>
         </div>
+
+        <!-- 声音列表 -->
+        <div id="sound-list"></div>
+
+        <!-- QQ 群提示 -->
         <div id="join-group">加入我们QQ交流群:797834076</div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
