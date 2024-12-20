@@ -87,8 +87,8 @@
                              sound === '撤离' ? 'Evacuation' :
                              sound === '复飞' ? 'Go Around' : sound;
         button.style.display = 'flex';
-        button.style.justifyContent = 'space-between';
-        button.style.alignItems = 'center';
+        button.style.justifyContent = 'space-between'; 
+        button.style.alignItems = 'center'; 
         button.style.width = '100%';
         button.style.padding = '10px';
         button.style.marginBottom = '10px';
@@ -96,12 +96,12 @@
         button.style.border = 'none';
         button.style.borderRadius = '5px';
         button.style.textAlign = 'left';
-        button.style.cursor = 'pointer';
+        button.style.cursor = 'pointer'; 
         button.addEventListener('click', function() {
             playSound(sound);
         });
 
-        // 添加 "PLAY" 文字
+      
         var playText = document.createElement('span');
         playText.textContent = 'PLAY';
         playText.style.fontWeight = 'bold';
