@@ -1,85 +1,40 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeoFS客舱广播</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            margin: 10px 0;
-        }
-        audio {
-            width: 100%;
-        }
-    </style>
+    <title>GeoFS Cabin Sounds</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>GeoFS客舱广播</h1>
-    <h2>由開飛機のzm制作</h2>
-    <h3>我们的QQ交流群797834076</h3>
-    <ul>
-        <li>
-            <audio controls src="sounds/关门.wav"></audio>
-            <p>关门</p>
-        </li>
-        <li>
-            <audio controls src="sounds/b take off.wav"></audio>
-            <p>起飞前</p>
-        </li>
-        <li>
-            <audio controls src="sounds/爬升.wav"></audio>
-            <p>爬升</p>
-        </li>
-        <li>
-            <audio controls src="sounds/颠簸.wav"></audio>
-            <p>颠簸</p>
-        </li>
-        <li>
-            <audio controls src="sounds/巡航.wav"></audio>
-            <p>巡航</p>
-        </li>
-        <li>
-            <audio controls src="sounds/用餐提醒.wav"></audio>
-            <p>用餐提醒</p>
-        </li>
-        <li>
-            <audio controls src="sounds/早餐.wav"></audio>
-            <p>早餐</p>
-        </li>
-        <li>
-            <audio controls src="sounds/午餐.wav"></audio>
-            <p>午餐</p>
-        </li>
-        <li>
-            <audio controls src="sounds/晚餐.wav"></audio>
-            <p>晚餐</p>
-        </li>
-        <li>
-            <audio controls src="sounds/下降前.wav"></audio>
-            <p>下降前</p>
-        </li>
-        <li>
-            <audio controls src="sounds/落地前.wav"></audio>
-            <p>落地前</p>
-        </li>
-        <li>
-            <audio controls src="sounds/开门.wav"></audio>
-            <p>开门</p>
-        </li>
-    </ul>
+    <div id="sound-button">Sounds</div>
+    <div id="sound-menu">
+        <h1>GeoFS China Airlines Cabin Announcements</h1>
+        <h2>Created by bilibili開飛機のzm</h2>
+        <div id="sound-list">
+            <button onclick="playSound('关门')">Close Door</button>
+            <button onclick="playSound('Ding')">Ding</button>
+            <button onclick="playSound('下降前')">Pre-Descent</button>
+            <button onclick="playSound('午餐')">Lunch</button>
+            <button onclick="playSound('备降')">Divert</button>
+            <button onclick="playSound('备降道歉')">Divert Apology</button>
+            <button onclick="playSound('复飞')">Go Around</button>
+            <button onclick="playSound('娱乐')">Entertainment</button>
+            <button onclick="playSound('使用娱乐系统提示')">Entertainment System Prompt</button>
+            <button onclick="playSound('巡航')">Cruise</button>
+            <button onclick="playSound('开门')">Open Door</button>
+            <button onclick="playSound('技术故障')">Technical Fault</button>
+            <button onclick="playSound('撤离')">Evacuation</button>
+            <button onclick="playSound('早餐')">Breakfast</button>
+            <button onclick="playSound('晚餐')">Dinner</button>
+            <button onclick="playSound('爬升')">Climb</button>
+            <button onclick="playSound('用餐提醒')">Meal Reminder</button>
+            <button onclick="playSound('落地前')">Pre-Landing</button>
+            <button onclick="playSound('起飞前')">Pre-Takeoff</button>
+            <button onclick="playSound('颠簸提醒')">Turbulence Warning</button>
+        </div>
+        <div id="join-group">加入我们QQ交流群:797834076</div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
