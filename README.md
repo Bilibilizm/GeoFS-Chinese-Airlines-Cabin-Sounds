@@ -5,6 +5,11 @@
 Paste the user.js code into the console(shift+ctrl+I)
 Then you will see a "Sounds" in game,when you click it,there will be a list,you can click"PLAY" to play what you want listern.
 
+
+You can click alt+Y to quickly open or close the menu
+
+
+
 If you have any advice,you can tell me.
 
 
