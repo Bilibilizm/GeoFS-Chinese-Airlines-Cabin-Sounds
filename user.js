@@ -21,7 +21,7 @@
     soundButton.id = 'sound-button';
     soundButton.textContent = 'Sounds';
     soundButton.style.position = 'fixed';
-    soundButton.style.bottom = '30px';
+    soundButton.style.bottom = '30px'; 
     soundButton.style.right = '20px';
     soundButton.style.backgroundColor = 'white';
     soundButton.style.color = 'black';
@@ -87,8 +87,8 @@
                              sound === '撤离' ? 'Evacuation' :
                              sound === '复飞' ? 'Go Around' : sound;
         button.style.display = 'flex';
-        button.style.justifyContent = 'space-between'; 
-        button.style.alignItems = 'center'; 
+        button.style.justifyContent = 'space-between';
+        button.style.alignItems = 'center';
         button.style.width = '100%';
         button.style.padding = '10px';
         button.style.marginBottom = '10px';
@@ -96,12 +96,11 @@
         button.style.border = 'none';
         button.style.borderRadius = '5px';
         button.style.textAlign = 'left';
-        button.style.cursor = 'pointer'; 
+        button.style.cursor = 'pointer';
         button.addEventListener('click', function() {
             playSound(sound);
         });
 
-      
         var playText = document.createElement('span');
         playText.textContent = 'PLAY';
         playText.style.fontWeight = 'bold';
@@ -122,12 +121,23 @@
 
     // JavaScript
     soundButton.addEventListener('click', function() {
-        if (soundMenu.style.display === 'none' || soundMenu.style.display === '') {
-            soundMenu.style.display = 'block';
-        } else {
-            soundMenu.style.display = 'none';
+        toggleMenu();
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.altKey && event.key === 'y') {
+            toggleMenu();
         }
     });
+
+    function toggleMenu() {
+        var menu = document.getElementById('sound-menu');
+        if (menu.style.display === 'none' || menu.style.display === '') {
+            menu.style.display = 'block';
+        } else {
+            menu.style.display = 'none';
+        }
+    }
 
     function playSound(soundName) {
         var audio = audioCache[soundName];
