@@ -1,5 +1,7 @@
 // ==/UserScript==
 // @version      1.1
+// maker      開飛機のzm
+
 (function() {
     'use strict';
 
@@ -83,7 +85,6 @@
         }
     };
 
-
     var currentLanguage = 'English';
 
     // HTML
@@ -91,14 +92,15 @@
     soundButton.id = 'sound-button';
     soundButton.textContent = 'Sounds';
     soundButton.style.position = 'fixed';
-    soundButton.style.bottom = '30px';
+    soundButton.style.bottom = '20px';
     soundButton.style.right = '20px';
     soundButton.style.backgroundColor = 'white';
     soundButton.style.color = 'black';
     soundButton.style.padding = '10px 20px';
     soundButton.style.borderRadius = '5px';
-    soundButton.style.cursor = 'pointer'; 
+    soundButton.style.cursor = 'pointer';
     soundButton.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.2)';
+    soundButton.style.zIndex = '9999'; 
     document.body.appendChild(soundButton);
 
     var soundMenu = document.createElement('div');
@@ -115,6 +117,7 @@
     soundMenu.style.display = 'none';
     soundMenu.style.maxHeight = '400px';
     soundMenu.style.overflowY = 'auto';
+    soundMenu.style.zIndex = '9999';
     document.body.appendChild(soundMenu);
 
     var menuTitle = document.createElement('h1');
@@ -161,7 +164,6 @@
     languageMenu.style.marginBottom = '20px';
     soundMenu.appendChild(languageMenu);
 
-
     ['简体中文', '繁體中文', 'English'].forEach(function(lang) {
         var langButton = document.createElement('button');
         langButton.textContent = lang;
@@ -181,7 +183,6 @@
             toggleLanguageMenu();
         });
 
-        // 添加 "切换"、"切換"、"Switch"
         var switchText = document.createElement('span');
         switchText.textContent = lang === '简体中文' ? '切换' :
                                  lang === '繁體中文' ? '切換' :
@@ -237,7 +238,10 @@
     soundMenu.appendChild(joinGroup);
 
     // JavaScript
-    soundButton.addEventListener('click', function() {
+    soundButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log('Sound button clicked');
         toggleMenu();
     });
 
@@ -278,7 +282,6 @@
             console.error('Audio not found:', soundName);
         }
     }
-
 
     generateButtons();
 })();
