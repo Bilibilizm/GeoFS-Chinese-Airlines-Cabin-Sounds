@@ -23,7 +23,7 @@
         'English': {
             '关门': 'Close Door',
             '起飞前': 'Pre-Takeoff',
-            '爬升': 'climb',
+            '爬升': 'Climb',
             'Ding': 'Ding',
             '巡航': 'Cruise',
             '用餐提醒': 'Meal Reminder',
