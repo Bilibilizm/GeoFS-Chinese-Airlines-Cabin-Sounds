@@ -1,14 +1,16 @@
 // ==/UserScript==
+// @name         GeoFS Chinese Cabin Sounds
 // @version      1.1
-// maker      開飛機のzm
+// @maker      開飛機のzm
 
 (function() {
     'use strict';
 
-
     var audioCache = {};
     var sounds = [
-        '关门', '起飞前', '爬升', 'Ding', '巡航', '用餐提醒', '早餐', '午餐', '晚餐', '娱乐', '使用娱乐系统提示',
+        'Ding', // 将Ding放在第一个
+        '关门', '起飞前', '爬升', // 爬升放在起飞前后面
+        '巡航', '用餐提醒', '早餐', '午餐', '晚餐', '娱乐', '使用娱乐系统提示',
         '颠簸提醒', '下降前', '落地前', '开门', '备降', '备降道歉', '技术故障', '撤离', '复飞'
     ];
 
@@ -18,13 +20,13 @@
         audioCache[sound] = audio;
     });
 
-
+ 
     var languageMap = {
         'English': {
+            'Ding': 'Ding',
             '关门': 'Close Door',
             '起飞前': 'Pre-Takeoff',
             '爬升': 'Climb',
-            'Ding': 'Ding',
             '巡航': 'Cruise',
             '用餐提醒': 'Meal Reminder',
             '早餐': 'Breakfast',
@@ -43,10 +45,10 @@
             '复飞': 'Go Around'
         },
         '简体中文': {
+            'Ding': '叮',
             '关门': '关门',
             '起飞前': '起飞前',
             '爬升': '爬升',
-            'Ding': 'Ding',
             '巡航': '巡航',
             '用餐提醒': '用餐提醒',
             '早餐': '早餐',
@@ -65,10 +67,10 @@
             '复飞': '复飞'
         },
         '繁體中文': {
+            'Ding': '叮',
             '关门': '關門',
             '起飞前': '起飛前',
             '爬升': '爬升',
-            'Ding': 'Ding',
             '巡航': '巡航',
             '用餐提醒': '用餐提醒',
             '早餐': '早餐',
@@ -88,6 +90,7 @@
         }
     };
 
+
     var currentLanguage = 'English';
 
     // HTML
@@ -103,7 +106,7 @@
     soundButton.style.borderRadius = '5px';
     soundButton.style.cursor = 'pointer';
     soundButton.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.2)';
-    soundButton.style.zIndex = '9999'; 
+    soundButton.style.zIndex = '9999';
     document.body.appendChild(soundButton);
 
     var soundMenu = document.createElement('div');
@@ -242,7 +245,7 @@
 
     // JavaScript
     soundButton.addEventListener('click', function(event) {
-        event.preventDefault();
+        event.preventDefault(); 
         event.stopPropagation();
         console.log('Sound button clicked');
         toggleMenu();
