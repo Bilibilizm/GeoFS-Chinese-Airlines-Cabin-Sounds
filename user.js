@@ -118,7 +118,7 @@
     document.body.appendChild(soundMenu);
 
     var menuTitle = document.createElement('h1');
-    menuTitle.textContent = 'GeoFS Chinese Cabin Sounds';
+    menuTitle.textContent = 'GeoFS Chinese Airlines Cabin Sounds';
     menuTitle.style.fontSize = '18px';
     menuTitle.style.marginBottom = '10px';
     soundMenu.appendChild(menuTitle);
