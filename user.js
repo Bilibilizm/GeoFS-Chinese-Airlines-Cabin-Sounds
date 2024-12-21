@@ -1,15 +1,11 @@
 // ==/UserScript==
-// @name         GeoFS Chinese Cabin Sounds
-// @version      1.1
-// @maker      開飛機のzm
-
 (function() {
     'use strict';
 
     var audioCache = {};
     var sounds = [
-        'Ding', // 将Ding放在第一个
-        '关门', '起飞前', '爬升', // 爬升放在起飞前后面
+        'Ding',
+        '关门', '起飞前', '爬升',
         '巡航', '用餐提醒', '早餐', '午餐', '晚餐', '娱乐', '使用娱乐系统提示',
         '颠簸提醒', '下降前', '落地前', '开门', '备降', '备降道歉', '技术故障', '撤离', '复飞'
     ];
