@@ -1,7 +1,6 @@
-
 #sound-button {
     position: fixed;
-    bottom: 30px;
+    bottom: 20px;
     right: 20px;
     background-color: white;
     color: black;
@@ -9,9 +8,8 @@
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+    z-index: 9999;
 }
-
 
 #sound-menu {
     position: fixed;
@@ -26,22 +24,8 @@
     display: none;
     max-height: 400px;
     overflow-y: auto;
-    z-index: 1000;
+    z-index: 9999;
 }
-
-
-#sound-menu h1 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-
-#sound-menu h2 {
-    font-size: 14px;
-    margin-bottom: 20px;
-    color: #666;
-}
-
 
 #language-button {
     display: flex;
@@ -57,33 +41,16 @@
     cursor: pointer;
 }
 
+#volume-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
 
-#language-menu {
-    display: none;
+#volume-slider {
+    width: 100%;
     margin-bottom: 20px;
 }
-
-/* 语言选项按钮样式 */
-#language-menu button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #f0f0f0;
-    border: none;
-    border-radius: 5px;
-    text-align: left;
-    cursor: pointer;
-}
-
-
-#language-menu button span {
-    font-weight: bold;
-    color: #007bff;
-}
-
 
 #sound-list button {
     display: flex;
@@ -99,16 +66,25 @@
     cursor: pointer;
 }
 
-
 #sound-list button span {
     font-weight: bold;
     color: #007bff;
+    margin-right: 10px;
 }
 
+#sound-list .progress-bar-container {
+    width: 100%;
+    height: 5px;
+    background-color: white;
+    margin: 5px 0;
+    position: relative;
+}
 
-#join-group {
-    margin-top: 20px;
-    font-size: 12px;
-    color: #666;
-    text-align: center;
+#sound-list .progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #007bff;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
