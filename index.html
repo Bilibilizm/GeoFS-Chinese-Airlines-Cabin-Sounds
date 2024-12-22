@@ -3,38 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeoFS Chinese Cabin Sounds</title>
+    <title>Cabin Sounds</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- 声音按钮 -->
     <div id="sound-button">Sounds</div>
-
-    <!-- 声音菜单 -->
     <div id="sound-menu">
-        <h1>GeoFS Chinese Cabin Sounds</h1>
+        <h1>GeoFS Chinese Airlines Cabin Sounds</h1>
         <h2>Created by bilibili-開飛機のzm</h2>
-
-        <!-- 语言按钮 -->
-        <button id="language-button">
-            Language
-            <span>▼</span>
-        </button>
-
-        <!-- 语言菜单 -->
-        <div id="language-menu">
-            <button onclick="setLanguage('简体中文')">简体中文 <span>切换</span></button>
-            <button onclick="setLanguage('繁體中文')">繁體中文 <span>切換</span></button>
-            <button onclick="setLanguage('English')">English <span>Switch</span></button>
-        </div>
-
-        <!-- 声音列表 -->
+        <button id="language-button">Language ▼</button>
+        <div id="language-menu"></div>
+        <label id="volume-label">声音</label>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
         <div id="sound-list"></div>
-
-        <!-- QQ 群提示 -->
         <div id="join-group">加入我们QQ交流群:797834076</div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
