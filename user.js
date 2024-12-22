@@ -2,21 +2,20 @@
 (function() {
     'use strict';
 
-
     var audioCache = {};
     var sounds = [
         'Ding',
         '关门', '起飞前', '爬升',
         '巡航', '用餐提醒', '早餐', '午餐', '晚餐', '娱乐', '使用娱乐系统提示',
-        '颠簸提醒', '下降前', '落地前', '开门', '备降', '备降道歉', '技术故障', '撤离', '复飞'
+        '颠簸提醒', '下降前', '落地前', '开门', '备降', '备降道歉', '技术故障', '撤离', '复飞',
+        'Annies Wonderland', 'Moonglow', '青花瓷',
+        'See you again'
     ];
-
 
     sounds.forEach(function(sound) {
         var audio = new Audio(`https://raw.githubusercontent.com/Bilibilizm/GeoFS-Chinese-Airlines-Cabin-Sounds/main/sounds/${sound}.wav`);
         audioCache[sound] = audio;
     });
-
 
     var currentLanguage = 'English';
 
@@ -43,6 +42,9 @@
             '技术故障': 'Technical Fault',
             '撤离': 'Evacuation',
             '复飞': 'Go Around',
+            'Annies Wonderland': 'Annies Wonderland',
+            'Moonglow': 'Moonglow',
+            '青花瓷': 'Blue and White Porcelain',
             '声音': 'Volume'
         },
         '简体中文': {
@@ -66,6 +68,10 @@
             '技术故障': '技术故障',
             '撤离': '撤离',
             '复飞': '复飞',
+            'Annies Wonderland': 'Annies Wonderland',
+            'Moonglow': 'Moonglow',
+            '青花瓷': '青花瓷',
+            'See you again': 'See you again',
             '声音': '声音'
         },
         '繁體中文': {
@@ -89,6 +95,9 @@
             '技术故障': '技術故障',
             '撤离': '撤離',
             '复飞': '復飛',
+            'Annies Wonderland': 'Annies Wonderland',
+            'Moonglow': 'Moonglow',
+            '青花瓷': '青花瓷',
             '声音': '聲音'
         }
     };
@@ -353,8 +362,7 @@
 
 
     generateButtons();
-
-
+    
     soundButton.addEventListener('click', function(event) {
         event.preventDefault(); 
         event.stopPropagation();
