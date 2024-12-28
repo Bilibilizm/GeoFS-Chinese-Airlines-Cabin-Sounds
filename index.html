@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cabin Sounds</title>
+    <title>GeoFS Cabin Sounds</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,11 +12,22 @@
         <h1>GeoFS Chinese Airlines Cabin Sounds</h1>
         <h2>Created by bilibili-開飛機のzm</h2>
         <button id="language-button">Language ▼</button>
-        <div id="language-menu"></div>
-        <label id="volume-label">声音</label>
+        <div id="language-menu">
+            <!-- Language buttons will be added here -->
+        </div>
+        <label id="volume-label">Volume</label>
         <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
-        <div id="sound-list"></div>
-        <div id="join-group">加入我们QQ交流群:797834076</div>
+        <div id="sound-list">
+            <!-- Sound buttons will be added here -->
+        </div>
+        <div id="join-group">Join our QQ group: 797834076</div>
+        <div id="file-upload-section">
+            <h3 id="upload-title">Upload Sounds</h3>
+            <input type="text" id="file-name-input" placeholder="Please enter text">
+            <input type="file" id="file-input" accept=".wav" style="display: none;">
+            <button id="browse-button">Browse local files</button>
+            <button id="upload-button">Upload</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
