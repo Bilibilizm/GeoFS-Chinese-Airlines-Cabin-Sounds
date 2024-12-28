@@ -29,6 +29,14 @@ Click the corresponding buttons in the plugin interface to play or pause the ann
 
 
 
+
+
+**Custom Audio Upload**﻿
+Upload your own .wav files (max 10MB) to add custom sounds.
+Name your uploaded files for easy identification.
+
+
+
 **Control Panel Shortcut**
 You can quickly open or close the control panel by pressing the "Alt + Y" shortcut.
 
