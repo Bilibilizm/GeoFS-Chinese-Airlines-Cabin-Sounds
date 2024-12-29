@@ -51,7 +51,8 @@
             '上传': 'Upload',
             '文件过大': 'File is too large (max 10MB)',
             '文件格式错误': 'Only .wav files are allowed',
-            '删除': 'Delete'
+            '删除': 'Delete',
+            'Visit the author': 'Visit the author'
         },
         '简体中文': {
             'Ding': '叮',
@@ -84,7 +85,8 @@
             '上传': '上传',
             '文件过大': '文件过大（最大 10MB）',
             '文件格式错误': '仅支持 .wav 文件',
-            '删除': '删除'
+            '删除': '删除',
+            'Visit the author': '访问作者'
         },
         '繁體中文': {
             'Ding': '叮',
@@ -116,7 +118,8 @@
             '上传': '上傳',
             '文件过大': '文件過大（最大 10MB）',
             '文件格式错误': '僅支持 .wav 文件',
-            '删除': '刪除'
+            '删除': '刪除',
+            'Visit the author': '訪問作者'
         }
     };
 
@@ -166,6 +169,21 @@
     menuSubtitle.style.color = '#666';
     soundMenu.appendChild(menuSubtitle);
 
+    var liveryImage = document.createElement('img');
+    liveryImage.src = 'https://i.ibb.co/YcVRmVL/SW.png'; 
+    liveryImage.alt = 'Chinese Livery Design Group-Sino Wings Logo'; 
+    liveryImage.style.width = '45px';
+    liveryImage.style.height = 'auto'; 
+    liveryImage.style.marginBottom = '20px';
+    soundMenu.appendChild(liveryImage);
+
+    var liveryInfo = document.createElement('p');
+    liveryInfo.textContent = 'from Chinese Livery Design Group-Sino Wings';
+    liveryInfo.style.fontSize = '12px';
+    liveryInfo.style.marginBottom = '20px';
+    liveryInfo.style.color = '#666';
+    soundMenu.appendChild(liveryInfo);
+
     var languageButton = document.createElement('button');
     languageButton.textContent = 'Language';
     languageButton.style.display = 'flex';
@@ -185,250 +203,288 @@
 
     var dropdownArrow = document.createElement('span');
     dropdownArrow.textContent = '▼';
-    dropdownArrow.style.fontWeight = 'bold';
-    dropdownArrow.style.color = '#666';
-    languageButton.appendChild(dropdownArrow);
+    dropdownArrow.style.fontWeight= 'bold';
+dropdownArrow.style.color = '#666';
+languageButton.appendChild(dropdownArrow);
 
-    soundMenu.appendChild(languageButton);
+soundMenu.appendChild(languageButton);
 
-    var languageMenu = document.createElement('div');
-    languageMenu.id = 'language-menu';
-    languageMenu.style.display = 'none';
-    languageMenu.style.marginBottom = '20px';
-    soundMenu.appendChild(languageMenu);
+var languageMenu = document.createElement('div');
+languageMenu.id = 'language-menu';
+languageMenu.style.display = 'none';
+languageMenu.style.marginBottom = '20px';
+soundMenu.appendChild(languageMenu);
 
-    ['简体中文', '繁體中文', 'English'].forEach(function(lang) {
-        var langButton = document.createElement('button');
-        langButton.textContent = lang;
-        langButton.style.display = 'flex';
-        langButton.style.justifyContent = 'space-between';
-        langButton.style.alignItems = 'center';
-        langButton.style.width = '100%';
-        langButton.style.padding = '10px';
-        langButton.style.marginBottom = '10px';
-        langButton.style.backgroundColor = '#f0f0f0';
-        langButton.style.border = 'none';
-        langButton.style.borderRadius = '5px';
-        langButton.style.textAlign = 'left';
-        langButton.style.cursor = 'pointer';
-        langButton.addEventListener('click', function() {
-            setLanguage(lang);
-            toggleLanguageMenu();
-        });
-
-        var switchText = document.createElement('span');
-        switchText.textContent = lang === '简体中文' ? '切换' :
-                                 lang === '繁體中文' ? '切換' :
-                                 'Switch';
-        switchText.style.fontWeight = 'bold';
-        switchText.style.color = '#007bff';
-        langButton.appendChild(switchText);
-
-        languageMenu.appendChild(langButton);
+['简体中文', '繁體中文', 'English'].forEach(function(lang) {
+    var langButton = document.createElement('button');
+    langButton.textContent = lang;
+    langButton.style.display = 'flex';
+    langButton.style.justifyContent = 'space-between';
+    langButton.style.alignItems = 'center';
+    langButton.style.width = '100%';
+    langButton.style.padding = '10px';
+    langButton.style.marginBottom = '10px';
+    langButton.style.backgroundColor = '#f0f0f0';
+    langButton.style.border = 'none';
+    langButton.style.borderRadius = '5px';
+    langButton.style.textAlign = 'left';
+    langButton.style.cursor = 'pointer';
+    langButton.addEventListener('click', function() {
+        setLanguage(lang);
+        toggleLanguageMenu();
     });
 
-    var volumeLabel = document.createElement('label');
-    volumeLabel.textContent = languageMap[currentLanguage]['声音'];
-    volumeLabel.style.display = 'block';
-    volumeLabel.style.marginBottom = '5px';
-    volumeLabel.style.fontWeight = 'bold';
-    soundMenu.appendChild(volumeLabel);
+    var switchText = document.createElement('span');
+    switchText.textContent = lang === '简体中文' ? '切换' :
+                             lang === '繁體中文' ? '切換' :
+                             'Switch';
+    switchText.style.fontWeight = 'bold';
+    switchText.style.color = '#007bff';
+    langButton.appendChild(switchText);
 
-    var volumeSlider = document.createElement('input');
-    volumeSlider.type = 'range';
-    volumeSlider.min = '0';
-    volumeSlider.max = '1';
-    volumeSlider.step = '0.01';
-    volumeSlider.value = '0.5';
-    volumeSlider.style.width = '100%';
-    volumeSlider.style.marginBottom = '20px';
-    volumeSlider.addEventListener('input', function() {
-        setVolume(volumeSlider.value);
-    });
-    soundMenu.appendChild(volumeSlider);
+    languageMenu.appendChild(langButton);
+});
 
-    var soundList = document.createElement('div');
-    soundList.id = 'sound-list';
-    soundMenu.appendChild(soundList);
+var volumeLabel = document.createElement('label');
+volumeLabel.textContent = languageMap[currentLanguage]['声音'];
+volumeLabel.style.display = 'block';
+volumeLabel.style.marginBottom = '5px';
+volumeLabel.style.fontWeight = 'bold';
+soundMenu.appendChild(volumeLabel);
 
-    var joinGroup = document.createElement('div');
-    joinGroup.id = 'join-group';
-    joinGroup.textContent = '加入我们QQ交流群:797834076';
-    joinGroup.style.marginTop = '20px';
-    joinGroup.style.fontSize = '12px';
-    joinGroup.style.color = '#666';
-    joinGroup.style.textAlign = 'center';
-    soundMenu.appendChild(joinGroup);
+var volumeSlider = document.createElement('input');
+volumeSlider.type = 'range';
+volumeSlider.min = '0';
+volumeSlider.max = '1';
+volumeSlider.step = '0.01';
+volumeSlider.value = '0.5';
+volumeSlider.style.width = '100%';
+volumeSlider.style.marginBottom = '20px';
+volumeSlider.addEventListener('input', function() {
+    setVolume(volumeSlider.value);
+});
+soundMenu.appendChild(volumeSlider);
 
-    var fileUploadSection = document.createElement('div');
-    fileUploadSection.id = 'file-upload-section';
-    fileUploadSection.style.marginTop = '20px';
-    soundMenu.appendChild(fileUploadSection);
-
-    var uploadTitle = document.createElement('h3');
-    uploadTitle.textContent = languageMap[currentLanguage]['上传音频'];
-    uploadTitle.style.fontSize = '16px';
-    uploadTitle.style.marginBottom = '10px';
-    fileUploadSection.appendChild(uploadTitle);
+var soundList = document.createElement('div');
+soundList.id = 'sound-list';
+soundMenu.appendChild(soundList);
 
 
-    var fileNameInput = document.createElement('input');
-    fileNameInput.type = 'text';
-    fileNameInput.id = 'file-name-input';
-    fileNameInput.placeholder = languageMap[currentLanguage]['请输入文字'];
-    fileNameInput.style.width = '100%';
-    fileNameInput.style.marginBottom = '10px';
-    fileUploadSection.appendChild(fileNameInput);
+var fileUploadSection = document.createElement('div');
+fileUploadSection.id = 'file-upload-section';
+fileUploadSection.style.marginTop = '20px';
+soundMenu.appendChild(fileUploadSection);
 
-    var fileInput = document.createElement('input');
-    fileInput.type = 'file';
-    fileInput.accept = '.wav';
-    fileInput.id = 'file-input';
-    fileInput.style.display = 'none';
-    fileInput.addEventListener('change', function(e) {
-        var files = e.target.files;
-        if (files.length > 0) {
-            var file = files[0];
-            if (file.size > 10 * 1024 * 1024) { // 10MB limit
-                alert(languageMap[currentLanguage]['文件过大']);
-                return;
-            }
-            if (!file.name.endsWith('.wav')) {
-                alert(languageMap[currentLanguage]['文件格式错误']);
-                return;
-            }
-            var fileName = file.name; // 获取文件名
-            fileNameInput.value = fileName; // 显示文件名
-            uploadButton.disabled = false; // Enable when a file is selected
+var uploadTitle = document.createElement('h3');
+uploadTitle.textContent = languageMap[currentLanguage]['上传音频'];
+uploadTitle.style.fontSize = '16px';
+uploadTitle.style.marginBottom = '10px';
+fileUploadSection.appendChild(uploadTitle);
+
+var fileNameInput = document.createElement('input');
+fileNameInput.type = 'text';
+fileNameInput.id = 'file-name-input';
+fileNameInput.placeholder = languageMap[currentLanguage]['请输入文字'];
+fileNameInput.style.width = '100%';
+fileNameInput.style.marginBottom = '10px';
+fileUploadSection.appendChild(fileNameInput);
+
+var fileInput = document.createElement('input');
+fileInput.type = 'file';
+fileInput.accept = '.wav';
+fileInput.id = 'file-input';
+fileInput.style.display = 'none';
+fileInput.addEventListener('change', function(e) {
+    var files = e.target.files;
+    if (files.length > 0) {
+        var file = files[0];
+        if (file.size > 10 * 1024 * 1024) { // 10MB limit
+            alert(languageMap[currentLanguage]['文件过大']);
+            return;
         }
-    });
-    fileUploadSection.appendChild(fileInput);
-
-    var browseButton = document.createElement('button');
-    browseButton.textContent = languageMap[currentLanguage]['浏览本地文件'];
-    browseButton.style.display = 'block';
-    browseButton.style.marginTop = '10px';
-    browseButton.style.width = '100%';
-    browseButton.style.padding = '10px';
-    browseButton.style.backgroundColor = '#f0f0f0';
-    browseButton.style.border = 'none';
-    browseButton.style.borderRadius = '5px';
-    browseButton.style.textAlign = 'left';
-    browseButton.style.cursor = 'pointer';
-    browseButton.addEventListener('click', function() {
-        fileInput.click(); // 触发文件输入的点击事件，打开文件选择对话框
-    });
-    fileUploadSection.appendChild(browseButton);
-
-    var uploadButton = document.createElement('button');
-    uploadButton.textContent = languageMap[currentLanguage]['上传'];
-    uploadButton.id = 'upload-button';
-    uploadButton.style.display = 'block';
-    uploadButton.style.marginTop = '10px';
-    uploadButton.style.width = '100%';
-    uploadButton.style.padding = '10px';
-    uploadButton.style.backgroundColor = '#007bff';
-    uploadButton.style.color = 'white';
-    uploadButton.style.border = 'none';
-    uploadButton.style.borderRadius = '5px';
-    uploadButton.style.cursor = 'pointer';
-    uploadButton.disabled = true; // Disable by default
-    uploadButton.addEventListener('click', function() {
-        if (fileInput.files.length > 0 && fileNameInput.value.trim() !== '') {
-            var file = fileInput.files[0];
-            var reader = new FileReader();
-            reader.onload = function(event) {
-                var audio = new Audio(event.target.result);
-                audioCache[fileNameInput.value] = audio;
-                generateButtons();
-                fileInput.value = ''; // Clear the input
-                fileNameInput.value = ''; // Clear the input
-                uploadButton.disabled = true;
-            };
-            reader.readAsDataURL(file);
+        if (!file.name.endsWith('.wav')) {
+            alert(languageMap[currentLanguage]['文件格式错误']);
+            return;
         }
-    });
-    fileUploadSection.appendChild(uploadButton);
+        var fileName = file.name; // 获取文件名
+        fileNameInput.value = fileName; // 显示文件名
+        uploadButton.disabled = false; // Enable when a file is selected
+    }
+});
+fileUploadSection.appendChild(fileInput);
 
-    var fileDisplay = document.createElement('div');
-    fileDisplay.id = 'file-display';
+var browseButton = document.createElement('button');
+browseButton.textContent = languageMap[currentLanguage]['浏览本地文件'];
+browseButton.style.display = 'block';
+browseButton.style.marginTop = '10px';
+browseButton.style.width = '100%';
+browseButton.style.padding = '10px';
+browseButton.style.backgroundColor = '#f0f0f0';
+browseButton.style.border = 'none';
+browseButton.style.borderRadius = '5px';
+browseButton.style.textAlign = 'left';
+browseButton.style.cursor = 'pointer';
+browseButton.addEventListener('click', function() {
+    fileInput.click(); // 触发文件输入的点击事件，打开文件选择对话框
+});
+fileUploadSection.appendChild(browseButton);
+
+var uploadButton = document.createElement('button');
+uploadButton.textContent = languageMap[currentLanguage]['上传'];
+uploadButton.id = 'upload-button';
+uploadButton.style.display = 'block';
+uploadButton.style.marginTop = '10px';
+uploadButton.style.width = '100%';
+uploadButton.style.padding = '10px';
+uploadButton.style.backgroundColor = '#007bff';
+uploadButton.style.color = 'white';
+uploadButton.style.border = 'none';
+uploadButton.style.borderRadius = '5px';
+uploadButton.style.cursor = 'pointer';
+uploadButton.disabled = true; // Disable by default
+uploadButton.addEventListener('click', function() {
+    if (fileInput.files.length > 0 && fileNameInput.value.trim() !== '') {
+        var file = fileInput.files[0];
+        var reader = new FileReader();
+        reader.onload = function(event) {
+            var audio = new Audio(event.target.result);
+            audioCache[fileNameInput.value] = audio;
+            generateButtons();
+            fileInput.value = ''; // Clear the input
+            fileNameInput.value = ''; // Clear the input
+            uploadButton.disabled = true;
+        };
+        reader.readAsDataURL(file);
+    }
+});
+fileUploadSection.appendChild(uploadButton);
+
+var fileDisplay = document.createElement('div');
+fileDisplay.id = 'file-display';
+fileDisplay.style.display = 'none';
+fileDisplay.style.marginTop = '10px';
+soundMenu.appendChild(fileDisplay);
+
+function removeFile() {
+    fileInput.value = '';
+    fileNameInput.value = '';
+    fileDisplay.textContent = '';
     fileDisplay.style.display = 'none';
-    fileDisplay.style.marginTop = '10px';
-    soundMenu.appendChild(fileDisplay);
+    uploadButton.disabled = true;
+}
 
-    function removeFile() {
-        fileInput.value = '';
-        fileNameInput.value = '';
-        fileDisplay.textContent = '';
-        fileDisplay.style.display = 'none';
-        uploadButton.disabled = true;
+function toggleMenu() {
+    var menu = document.getElementById('sound-menu');
+    if (menu.style.display === 'none' || menu.style.display === '') {
+        menu.style.display = 'block';
+    } else {
+        menu.style.display = 'none';
     }
+}
 
-    function toggleMenu() {
-        var menu = document.getElementById('sound-menu');
-        if (menu.style.display === 'none' || menu.style.display === '') {
-            menu.style.display = 'block';
+function toggleLanguageMenu() {
+    var langMenu = document.getElementById('language-menu');
+    if (langMenu.style.display === 'none' || langMenu.style.display === '') {
+        langMenu.style.display = 'block';
+    } else {
+        langMenu.style.display = 'none';
+    }
+}
+
+function setLanguage(lang) {
+    currentLanguage = lang;
+    volumeLabel.textContent = languageMap[currentLanguage]['声音'];
+    fileNameInput.placeholder = languageMap[currentLanguage]['请输入文字'];
+    uploadButton.textContent = languageMap[currentLanguage]['上传'];
+    browseButton.textContent = languageMap[currentLanguage]['浏览本地文件'];
+    uploadTitle.textContent = languageMap[currentLanguage]['上传音频'];
+    generateButtons();
+}
+
+function setVolume(volume) {
+    Object.values(audioCache).forEach(function(audio) {
+        audio.volume = volume;
+    });
+}
+
+function playSound(soundName, button) {
+    var audio = audioCache[soundName];
+    if (audio) {
+        var playPauseIcon = button.querySelector('span');
+        if (!audio.paused) {
+            audio.pause();
+            audio.currentTime = 0;
+            button.querySelector('.progress-bar').style.width = '0%';
+            playPauseIcon.textContent = '▶';
         } else {
-            menu.style.display = 'none';
-        }
-    }
-
-    function toggleLanguageMenu() {
-        var langMenu = document.getElementById('language-menu');
-        if (langMenu.style.display === 'none' || langMenu.style.display === '') {
-            langMenu.style.display = 'block';
-        } else {
-            langMenu.style.display = 'none';
-        }
-    }
-
-    function setLanguage(lang) {
-        currentLanguage = lang;
-        volumeLabel.textContent = languageMap[currentLanguage]['声音'];
-        fileNameInput.placeholder = languageMap[currentLanguage]['请输入文字'];
-        uploadButton.textContent = languageMap[currentLanguage]['上传'];
-        browseButton.textContent = languageMap[currentLanguage]['浏览本地文件'];
-        uploadTitle.textContent = languageMap[currentLanguage]['上传音频'];
-        generateButtons();
-    }
-
-    function setVolume(volume) {
-        Object.values(audioCache).forEach(function(audio) {
-            audio.volume = volume;
-        });
-    }
-
-    function playSound(soundName, button) {
-        var audio = audioCache[soundName];
-        if (audio) {
-            var playPauseIcon = button.querySelector('span');
-            if (!audio.paused) {
-                audio.pause();
-                audio.currentTime = 0;
+            audio.play();
+            audio.addEventListener('timeupdate', function() {
+                var progress = (audio.currentTime / audio.duration) * 100;
+                button.querySelector('.progress-bar').style.width = progress + '%';
+            });
+            audio.addEventListener('ended', function() {
                 button.querySelector('.progress-bar').style.width = '0%';
                 playPauseIcon.textContent = '▶';
-            } else {
-                audio.play();
-                audio.addEventListener('timeupdate', function() {
-                    var progress = (audio.currentTime / audio.duration) * 100;
-                    button.querySelector('.progress-bar').style.width = progress + '%';
-                });
-                audio.addEventListener('ended', function() {
-                    button.querySelector('.progress-bar').style.width = '0%';
-                    playPauseIcon.textContent = '▶';
-                });
-                playPauseIcon.textContent = '▐▐';
-            }
-        } else {
-            console.error('Audio not found:', soundName);
+            });
+            playPauseIcon.textContent = '▐▐';
         }
+    } else {
+        console.error('Audio not found:', soundName);
     }
+}
 
-    function generateButtons() {
-        soundList.innerHTML = '';
-        sounds.forEach(function(sound) {
+function generateButtons() {
+    soundList.innerHTML = '';
+    sounds.forEach(function(sound) {
+        var button = document.createElement('button');
+        button.textContent = languageMap[currentLanguage][sound];
+        button.style.display = 'flex';
+        button.style.justifyContent = 'space-between';
+        button.style.alignItems = 'center';
+        button.style.width = '100%';
+        button.style.padding = '10px';
+        button.style.marginBottom= '10px';
+        button.style.backgroundColor = '#f0f0f0';
+        button.style.border = 'none';
+        button.style.borderRadius = '5px';
+        button.style.textAlign = 'left';
+        button.style.cursor = 'pointer';
+        button.addEventListener('click', function() {
+        playSound(sound, button);
+        });
+
+        var playPauseIcon = document.createElement('span');
+        playPauseIcon.textContent = '▶';
+        playPauseIcon.style.fontWeight = 'bold';
+        playPauseIcon.style.color = '#007bff';
+        playPauseIcon.style.marginRight = '10px';
+        button.appendChild(playPauseIcon);
+
+        var progressBarContainer = document.createElement('div');
+        progressBarContainer.style.width = '100%';
+        progressBarContainer.style.height = '5px';
+        progressBarContainer.style.backgroundColor = 'white';
+        progressBarContainer.style.margin = '5px 0';
+        progressBarContainer.style.position = 'relative';
+        button.appendChild(progressBarContainer);
+
+        var progressBar = document.createElement('div');
+        progressBar.style.width = '0%';
+        progressBar.style.height = '100%';
+        progressBar.style.backgroundColor = '#007bff';
+        progressBar.style.position = 'absolute';
+        progressBar.style.top = '0';
+        progressBar.style.left = '0';
+        progressBar.className = 'progress-bar';
+        progressBarContainer.appendChild(progressBar);
+
+        soundList.appendChild(button);
+    });
+
+    Object.keys(audioCache).forEach(function(sound) {
+        if (!sounds.includes(sound)) {
             var button = document.createElement('button');
-            button.textContent = languageMap[currentLanguage][sound];
+            button.textContent = sound;
             button.style.display = 'flex';
             button.style.justifyContent = 'space-between';
             button.style.alignItems = 'center';
@@ -469,88 +525,85 @@
             progressBar.className = 'progress-bar';
             progressBarContainer.appendChild(progressBar);
 
+            var deleteButton = document.createElement('button');
+            deleteButton.textContent = languageMap[currentLanguage]['删除'];
+            deleteButton.style.backgroundColor = '#ff4d4d';
+            deleteButton.style.color = 'white';
+            deleteButton.style.border = 'none';
+            deleteButton.style.borderRadius = '5px';
+            deleteButton.style.padding = '5px 10px';
+            deleteButton.style.marginLeft = '10px';
+            deleteButton.style.cursor = 'pointer';
+            deleteButton.addEventListener('click', function(event) {
+                event.stopPropagation();
+                delete audioCache[sound];
+                generateButtons();
+            });
+            button.appendChild(deleteButton);
+
             soundList.appendChild(button);
-        });
-
-        // Add new buttons for uploaded sounds
-        Object.keys(audioCache).forEach(function(sound) {
-            if (!sounds.includes(sound)) {
-                var button = document.createElement('button');
-                button.textContent = sound;
-                button.style.display = 'flex';
-                button.style.justifyContent = 'space-between';
-                button.style.alignItems = 'center';
-                button.style.width = '100%';
-                button.style.padding = '10px';
-                button.style.marginBottom = '10px';
-                button.style.backgroundColor = '#f0f0f0';
-                button.style.border = 'none';
-                button.style.borderRadius = '5px';
-                button.style.textAlign = 'left';
-                button.style.cursor = 'pointer';
-                button.addEventListener('click', function() {
-                    playSound(sound, button);
-                });
-
-                var playPauseIcon = document.createElement('span');
-                playPauseIcon.textContent = '▶';
-                playPauseIcon.style.fontWeight = 'bold';
-                playPauseIcon.style.color = '#007bff';
-                playPauseIcon.style.marginRight = '10px';
-                button.appendChild(playPauseIcon);
-
-                var progressBarContainer = document.createElement('div');
-                progressBarContainer.style.width = '100%';
-                progressBarContainer.style.height = '5px';
-                progressBarContainer.style.backgroundColor = 'white';
-                progressBarContainer.style.margin = '5px 0';
-                progressBarContainer.style.position = 'relative';
-                button.appendChild(progressBarContainer);
-
-                var progressBar = document.createElement('div');
-                progressBar.style.width = '0%';
-                progressBar.style.height = '100%';
-                progressBar.style.backgroundColor = '#007bff';
-                progressBar.style.position = 'absolute';
-                progressBar.style.top = '0';
-                progressBar.style.left = '0';
-                progressBar.className = 'progress-bar';
-                progressBarContainer.appendChild(progressBar);
-
-                // Add delete button for uploaded sounds
-                var deleteButton = document.createElement('button');
-                deleteButton.textContent = languageMap[currentLanguage]['删除'];
-                deleteButton.style.backgroundColor = '#ff4d4d';
-                deleteButton.style.color = 'white';
-                deleteButton.style.border = 'none';
-                deleteButton.style.borderRadius = '5px';
-                deleteButton.style.padding = '5px 10px';
-                deleteButton.style.marginLeft = '10px';
-                deleteButton.style.cursor = 'pointer';
-                deleteButton.addEventListener('click', function(event) {
-                    event.stopPropagation(); // Prevent triggering the play button
-                    delete audioCache[sound];
-                    generateButtons();
-                });
-                button.appendChild(deleteButton);
-
-                soundList.appendChild(button);
-            }
-        });
-    }
-
-    generateButtons();
-
-    soundButton.addEventListener('click', function(event) {
-        event.preventDefault(); 
-        event.stopPropagation();
-        console.log('Sound button clicked');
-        toggleMenu();
-    });
-
-    document.addEventListener('keydown', function(event) {
-        if (event.altKey && event.key === 'y') {
-            toggleMenu();
         }
     });
+}
+
+    var joinGroup = document.createElement('div');
+    joinGroup.id = 'join-group';
+    joinGroup.textContent = '加入我们QQ交流群:797834076';
+    joinGroup.style.marginTop = '20px';
+    joinGroup.style.fontSize = '12px';
+    joinGroup.style.color = '#666';
+    joinGroup.style.textAlign = 'center';
+    soundMenu.appendChild(joinGroup);
+
+// Add Visit the author section
+var visitAuthorSection = document.createElement('div');
+visitAuthorSection.id = 'visit-author-section';
+visitAuthorSection.style.marginTop = '20px';
+visitAuthorSection.style.textAlign = 'center';
+visitAuthorSection.style.fontSize = '12px';
+visitAuthorSection.style.color = '#666';
+soundMenu.appendChild(visitAuthorSection);
+
+var visitAuthorTitle = document.createElement('h3');
+visitAuthorTitle.textContent = languageMap[currentLanguage]['Visit the author'];
+visitAuthorTitle.style.marginBottom = '5px';
+visitAuthorSection.appendChild(visitAuthorTitle);
+
+var bilibiliLink = document.createElement('img');
+bilibiliLink.src = 'https://i.ibb.co/WBXZKn9/bl.png';
+bilibiliLink.alt = 'Bilibili Link';
+bilibiliLink.style.width = '45px';
+bilibiliLink.style.height = 'auto';
+bilibiliLink.style.marginRight = '10px';
+bilibiliLink.style.cursor = 'pointer';
+bilibiliLink.addEventListener('click', function() {
+    window.open('https://space.bilibili.com/3493078037957365?spm_id_from=333.1007.0.0', '_blank');
+});
+visitAuthorSection.appendChild(bilibiliLink);
+
+var youtubeLink = document.createElement('img');
+youtubeLink.src = 'https://i.ibb.co/Bz1cMBn/ytl.png';
+youtubeLink.alt = 'YouTube Link';
+youtubeLink.style.width = '45px';
+youtubeLink.style.height = 'auto';
+youtubeLink.style.cursor = 'pointer';
+youtubeLink.addEventListener('click', function() {
+    window.open('https://www.youtube.com/channel/UCcNizdsaoeIy_kNbIr50pYA', '_blank');
+});
+visitAuthorSection.appendChild(youtubeLink);
+
+generateButtons();
+
+soundButton.addEventListener('click', function(event) {
+    event.preventDefault(); 
+    event.stopPropagation();
+    console.log('Sound button clicked');
+    toggleMenu();
+});
+
+document.addEventListener('keydown', function(event) {
+    if (event.altKey && event.key === 'y') {
+        toggleMenu();
+    }
+});
 })();
