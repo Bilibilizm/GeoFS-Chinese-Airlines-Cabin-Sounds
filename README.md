@@ -14,6 +14,8 @@ Users need to save the plugin code as a .js file and install it in their browser
 **Load Audio Files**
 The plugin loads audio files directly via GitHub links. Ensure your network environment can access GitHub to smoothly load the audio files.
 ﻿
+
+
 **Switch Languages**
 In the plugin interface, click the "Language" button and select the language you wish to use. Currently, "Simplified Chinese", "Traditional Chinese", and "English" are supported.
 
