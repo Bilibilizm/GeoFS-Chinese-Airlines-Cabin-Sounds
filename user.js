@@ -86,7 +86,7 @@
             '文件过大': '文件过大（最大 10MB）',
             '文件格式错误': '仅支持 .wav 文件',
             '删除': '删除',
-            'Visit the author': '访问作者'
+            'Visit the author': '查看帅比作者'
         },
         '繁體中文': {
             'Ding': '叮',
@@ -119,7 +119,7 @@
             '文件过大': '文件過大（最大 10MB）',
             '文件格式错误': '僅支持 .wav 文件',
             '删除': '刪除',
-            'Visit the author': '訪問作者'
+            'Visit the author': '查看作者'
         }
     };
 
@@ -398,8 +398,10 @@ function setLanguage(lang) {
     uploadButton.textContent = languageMap[currentLanguage]['上传'];
     browseButton.textContent = languageMap[currentLanguage]['浏览本地文件'];
     uploadTitle.textContent = languageMap[currentLanguage]['上传音频'];
+    visitAuthorTitle.textContent = languageMap[currentLanguage]['Visit the author']; // 添加这行代码以切换语言
     generateButtons();
 }
+
 
 function setVolume(volume) {
     Object.values(audioCache).forEach(function(audio) {
