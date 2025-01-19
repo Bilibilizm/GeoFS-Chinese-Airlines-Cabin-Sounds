@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GeoFS Chinese Cabin Sounds
 // @namespace    http://tampermonkey.net/
-// @version      1.4
+// @version      1.45
 // @description  nothing
 // @author       zm
 // @match        https://www.geo-fs.com/geofs.php?v=3.9
